@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YHPGL2\YHPGL2.csproj">
+      <Project>{9f19a078-13e3-45ce-8897-665b0430c3b5}</Project>
+      <Name>YHPGL2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

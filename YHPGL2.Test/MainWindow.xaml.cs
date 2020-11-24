@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace YHPGL2.Test
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private HPGLFile _hpglFile;
+
+        private void _OnClicked(object sender, RoutedEventArgs e)
+        {
+            _ShowOpenIgesFileDialog();
+        }
+
+        private void _ShowOpenIgesFileDialog()
+        {
+            var dialog = new OpenFileDialog() { Filter = string.Format("{0}|*.{1};*.{2};*.{3};", "HPGL File", "plt", "hgl", "hpgl") };
+            if (dialog.ShowDialog() == true)
+                _hpglFile = HPGLFile.Load(dialog.FileName);
         }
     }
 }
