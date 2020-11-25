@@ -67,6 +67,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            states.LA(_lineEnds, _lineJoins, _miterLimit);
         }
     }
 }

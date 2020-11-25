@@ -20,7 +20,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-            states.Init();
+            states.IN();
         }
     }
 }

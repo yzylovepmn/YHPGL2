@@ -28,6 +28,9 @@ namespace YHPGL2
             _yMin = yMin;
             _yMax = yFactor;
             _scType = SCType.PointFactor;
+
+            if (_xMax == 0 || _yMax == 0)
+                throw new ArgumentException();
         }
 
         public SCInstruction(double xMin, double xMax, double yMin, double yMax, SCType type = SCType.Anisotropic, double left = 50, double bottom = 50)
@@ -39,6 +42,9 @@ namespace YHPGL2
             _scType = type;
             _left = left;
             _bottom = bottom;
+
+            if (_xMin == _xMax || _yMin == _yMax)
+                throw new ArgumentException();
         }
 
         public override InstructionType Type { get { return InstructionType.SC; } }
@@ -70,7 +76,9 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            if (_scType == SCType.Unknown)
+                states.SC();
+            else states.SC(_scType, _xMin, _xMax, _yMin, _yMax, _left, _bottom);
         }
     }
 }

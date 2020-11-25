@@ -12,7 +12,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-            states.ToDefault();
+            states.DF();
         }
     }
 }

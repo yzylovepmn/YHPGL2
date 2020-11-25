@@ -9,7 +9,19 @@ namespace YHPGL2
 {
     public class IPInstruction : Instruction
     {
-        public IPInstruction(Point? p1 = null, Point? p2 = null)
+        public IPInstruction()
+        {
+            _p1 = null;
+            _p2 = null;
+        }
+
+        public IPInstruction(Point p1)
+        {
+            _p1 = p1;
+            _p2 = null;
+        }
+
+        public IPInstruction(Point p1, Point p2)
         {
             _p1 = p1;
             _p2 = p2;

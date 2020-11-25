@@ -86,21 +86,36 @@ namespace YHPGL2
                         case InstructionType.IR:
                             {
                                 var p1 = (Point?)_NextVector();
-                                var p2 = default(Point?);
-                                if (p1.HasValue && _SkipSeparator())
-                                    p2 = (Point?)_NextVector();
-                                inst = type == InstructionType.IP ? new IPInstruction(p1, p2) : (Instruction)new IRInstruction(p1, p2);
+                                if (!p1.HasValue)
+                                    inst = type == InstructionType.IP ? new IPInstruction() : (Instruction)new IRInstruction();
+                                else
+                                {
+                                    var p2 = default(Point?);
+                                    if (_SkipSeparator())
+                                        p2 = (Point?)_NextVector();
+                                    if (!p2.HasValue)
+                                        inst = type == InstructionType.IP ? new IPInstruction(p1.Value) : (Instruction)new IRInstruction(p1.Value);
+                                    else inst = type == InstructionType.IP ? new IPInstruction(p1.Value, p2.Value) : (Instruction)new IRInstruction(p1.Value, p2.Value);
+                                }
                             }
                             break;
                         case InstructionType.IW:
                             {
                                 var p1 = (Point?)_NextVector();
-                                var p2 = default(Point?);
-                                if (p1.HasValue && _SkipSeparator())
-                                    p2 = (Point?)_NextVector();
-                                if (p1.HasValue && !p2.HasValue)
-                                    throw new ArgumentException("lost p2");
-                                inst = new IWInstruction(p1, p2);
+                                if (!p1.HasValue)
+                                    inst = new IWInstruction();
+                                else
+                                {
+                                    var p2 = default(Point?);
+                                    if (_SkipSeparator())
+                                    {
+                                        p2 = (Point?)_NextVector();
+                                        if (p2.HasValue)
+                                            inst = new IWInstruction(p1.Value, p2.Value);
+                                        else throw new ArgumentException("lost p2");
+                                    }
+                                    else throw new ArgumentException("lost p2");
+                                }
                             }
                             break;
                         case InstructionType.PG:

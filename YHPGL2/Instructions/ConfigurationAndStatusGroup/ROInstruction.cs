@@ -33,7 +33,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            states.RO(_direction);
         }
     }
 }

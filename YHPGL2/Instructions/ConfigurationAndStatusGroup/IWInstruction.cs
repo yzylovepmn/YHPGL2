@@ -9,7 +9,13 @@ namespace YHPGL2
 {
     public class IWInstruction : Instruction
     {
-        public IWInstruction(Point? p1 = null, Point? p2 = null)
+        public IWInstruction()
+        {
+            _p1 = null;
+            _p2 = null;
+        }
+
+        public IWInstruction(Point p1, Point p2)
         {
             _p1 = p1;
             _p2 = p2;
@@ -25,7 +31,9 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            if (_p1 == null)
+                states.IW();
+            else states.IW(_p1.Value, _p2.Value);
         }
     }
 }

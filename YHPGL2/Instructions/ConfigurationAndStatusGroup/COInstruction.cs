@@ -20,6 +20,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            // Do Noting
         }
 
         public override string ToString()
