@@ -28,6 +28,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.RO; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public RODirection Direction { get { return _direction; } }
         private RODirection _direction;
 

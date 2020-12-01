@@ -234,15 +234,15 @@ namespace YHPGL2
                             inst = new PAInstruction(_NextVectors().Select(vec => (Point)vec));
                             break;
                         case InstructionType.PD:
-                            inst = new PDInstruction(_NextVectors());
+                            inst = new PDInstruction(_NextVectors().Select(vec => (Point)vec));
                             break;
                         case InstructionType.PE:
                             break;
                         case InstructionType.PR:
-                            inst = new PRInstruction(_NextVectors());
+                            inst = new PRInstruction(_NextVectors().Select(vec => (Point)vec));
                             break;
                         case InstructionType.PU:
-                            inst = new PUInstruction(_NextVectors());
+                            inst = new PUInstruction(_NextVectors().Select(vec => (Point)vec));
                             break;
                         case InstructionType.RT:
                             {

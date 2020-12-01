@@ -15,6 +15,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.CO; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public string Comment { get { return _comment; } }
         private string _comment;
 

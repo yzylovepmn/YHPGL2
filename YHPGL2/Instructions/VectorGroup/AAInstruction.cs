@@ -18,6 +18,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.AA; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public Point Center { get { return _center; } }
         private Point _center;
 
@@ -29,7 +31,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            states.AA(_center, _sweepAngle, _chordAngle);
         }
     }
 }

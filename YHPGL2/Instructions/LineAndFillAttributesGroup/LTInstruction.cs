@@ -38,6 +38,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.LT; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public int? LineType { get { return _lineType; } }
         private int? _lineType;
 
@@ -49,6 +51,9 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            if (_lineType == null)
+                states.LT();
+            else states.LT(_lineType.Value, _patternLength, _isRelative);
         }
     }
 }

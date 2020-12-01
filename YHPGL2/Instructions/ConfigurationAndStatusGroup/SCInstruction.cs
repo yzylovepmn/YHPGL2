@@ -49,6 +49,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.SC; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public SCType SCType { get { return _scType; } }
         private SCType _scType;
 

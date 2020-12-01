@@ -43,7 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generator.cs" />
+    <Compile Include="Geometry\Complex.cs" />
+    <Compile Include="Geometry\IShape.cs" />
     <Compile Include="Geometry\Pen.cs" />
+    <Compile Include="Geometry\Polygon.cs" />
+    <Compile Include="Geometry\PolyLine.cs" />
+    <Compile Include="Geometry\Vertex.cs" />
     <Compile Include="HPGLFile.cs" />
     <Compile Include="HPGLParser.cs" />
     <Compile Include="Instructions\ConfigurationAndStatusGroup\COInstruction.cs" />

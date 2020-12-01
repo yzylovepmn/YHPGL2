@@ -8,7 +8,8 @@ namespace YHPGL2
 {
     public class Pen
     {
-        public const double DefaultWidth = 0.35; // mm
+        public const double DefaultWidthMetric = 0.35; // mm
+        public const double DefaultWidthRelative = 0.1; // percentage of the diagonal distance from P1 to P2
 
         public Pen()
         {
@@ -18,19 +19,26 @@ namespace YHPGL2
         public double Width { get { return _width; } set { _width = value; } }
         private double _width;
 
-        public LineWidthType WidthType { get { return _widthType; } }
+        public LineWidthType WidthType { get { return _widthType; } set { _widthType = value; } }
         private LineWidthType _widthType;
 
         public void Init()
         {
-            ToDefault();
-            _width = DefaultWidth;
             _widthType = LineWidthType.Metric;
+            ToDefault();
         }
 
         public void ToDefault()
         {
-
+            switch (_widthType)
+            {
+                case LineWidthType.Metric:
+                    _width = DefaultWidthMetric;
+                    break;
+                case LineWidthType.Relative:
+                    _width = DefaultWidthRelative;
+                    break;
+            }
         }
     }
 }

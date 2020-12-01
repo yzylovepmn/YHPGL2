@@ -26,11 +26,14 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.WU; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public LineWidthType LineWidthType { get { return _lineWidthType; } }
         private LineWidthType _lineWidthType;
 
         public override void Execute(States states)
         {
+            states.WU(_lineWidthType);
         }
     }
 }

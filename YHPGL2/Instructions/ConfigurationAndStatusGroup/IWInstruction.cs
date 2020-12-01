@@ -23,6 +23,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.IW; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public Point? P1 { get { return _p1; } }
         private Point? _p1;
 

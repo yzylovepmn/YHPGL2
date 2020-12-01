@@ -18,6 +18,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.EW; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public double Radius { get { return _radius; } }
         private double _radius;
 
@@ -32,6 +34,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            states.EW(_radius, _startAngle, _sweepAngle, _chordAngle);
         }
     }
 }

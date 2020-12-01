@@ -9,18 +9,21 @@ namespace YHPGL2
 {
     public class PDInstruction : Instruction
     {
-        public PDInstruction(IEnumerable<Vector> vecs)
+        public PDInstruction(IEnumerable<Point> points)
         {
-            _vecs = vecs.ToList();
+            _points = points.ToList();
         }
 
         public override InstructionType Type { get { return InstructionType.PD; } }
 
-        public IEnumerable<Vector> Vecs { get { return _vecs; } }
-        private List<Vector> _vecs;
+        public override bool AllowInPolygonMode { get { return true; } }
+
+        public IEnumerable<Point> Points { get { return _points; } }
+        private List<Point> _points;
 
         public override void Execute(States states)
         {
+            states.PD(_points);
         }
     }
 }

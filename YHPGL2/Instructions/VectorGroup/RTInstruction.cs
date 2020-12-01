@@ -18,6 +18,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.RT; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public Vector Inter { get { return _inter; } }
         private Vector _inter;
 
@@ -29,6 +31,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            states.RT(_inter, _end, _chordAngle);
         }
     }
 }

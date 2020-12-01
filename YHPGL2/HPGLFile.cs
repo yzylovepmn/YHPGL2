@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace YHPGL2
 {
@@ -12,7 +13,13 @@ namespace YHPGL2
         internal static double DefaultWidth = 800;  // mm
         internal static double DefaultHeight = 1000;// mm
 
-        private HPGLFile(IEnumerable<Instruction> instructions)
+        public HPGLFile()
+        {
+            _states = new States();
+            _instructions = new List<Instruction>();
+        }
+
+        public HPGLFile(IEnumerable<Instruction> instructions)
         {
             _states = new States();
             _instructions = instructions.ToList();
@@ -23,6 +30,46 @@ namespace YHPGL2
 
         public IEnumerable<Instruction> Instructions { get { return _instructions; } }
         private List<Instruction> _instructions;
+
+        public IEnumerable<IShape> Execute(Size area)
+        {
+            return _states.Execute(area, _instructions);
+        }
+
+        public void AddInstruction(Instruction instruction)
+        {
+            _instructions.Add(instruction);
+        }
+
+        public void AddInstructions(IEnumerable<Instruction> instructions)
+        {
+            _instructions.AddRange(instructions);
+        }
+
+        public void InsertInstruction(int index, Instruction instruction)
+        {
+            _instructions.Insert(index, instruction);
+        }
+
+        public void InsertInstructions(int index, IEnumerable<Instruction> instructions)
+        {
+            _instructions.InsertRange(index, instructions);
+        }
+
+        public void RemoveInstruction(Instruction instruction)
+        {
+            _instructions.Remove(instruction);
+        }
+
+        public void RemoveInstruction(int index)
+        {
+            _instructions.RemoveAt(index);
+        }
+
+        public void Clear()
+        {
+            _instructions.Clear();
+        }
 
         public static HPGLFile Load(string fileFullName)
         {

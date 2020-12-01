@@ -10,6 +10,8 @@ namespace YHPGL2
     {
         public override InstructionType Type { get { return InstructionType.DF; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public override void Execute(States states)
         {
             states.DF();

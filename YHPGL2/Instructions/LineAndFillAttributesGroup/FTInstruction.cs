@@ -33,6 +33,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.FT; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public int FillType { get { return _fillType; } }
         private int _fillType;
 

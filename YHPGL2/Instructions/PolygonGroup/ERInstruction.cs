@@ -16,11 +16,14 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.ER; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public Vector End { get { return _end; } }
         private Vector _end;
 
         public override void Execute(States states)
         {
+            states.ER(_end);
         }
     }
 }

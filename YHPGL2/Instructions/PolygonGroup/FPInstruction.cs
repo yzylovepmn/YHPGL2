@@ -26,6 +26,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.FP; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public FillMode FillMode { get { return _fillMode; } }
         private FillMode _fillMode;
 

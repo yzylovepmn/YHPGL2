@@ -10,6 +10,8 @@ namespace YHPGL2
     {
         public abstract InstructionType Type { get; }
 
+        public abstract bool AllowInPolygonMode { get; }
+
         public abstract void Execute(States states);
 
         public override string ToString()

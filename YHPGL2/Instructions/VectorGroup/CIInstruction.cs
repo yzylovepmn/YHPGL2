@@ -16,6 +16,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.CI; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public double Radius { get { return _radius; } }
         private double _radius;
 
@@ -24,7 +26,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            states.CI(_radius, _chordAngle);
         }
     }
 }

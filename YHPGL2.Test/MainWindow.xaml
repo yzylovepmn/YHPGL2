@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Height="24" Width="100" Content="打开" Click="_OnClicked"/>
+        <Button Height="24" Width="100" Content="Open" Click="_OnClicked"/>
     </Grid>
 </Window>

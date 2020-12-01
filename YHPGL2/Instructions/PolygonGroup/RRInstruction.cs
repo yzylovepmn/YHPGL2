@@ -16,6 +16,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.RR; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public Vector End { get { return _end; } }
         private Vector _end;
 

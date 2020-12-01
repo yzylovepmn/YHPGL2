@@ -17,6 +17,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.SP; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public int Pen { get { return _pen; } }
         private int _pen;
 

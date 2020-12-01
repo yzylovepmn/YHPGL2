@@ -25,6 +25,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.PW; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public double? LineWidth { get { return _lineWidth; } }
         private double? _lineWidth;
 
@@ -33,6 +35,11 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
+            if (_lineWidth == null)
+                states.PW();
+            else if (_pen == null)
+                states.PW(_lineWidth.Value);
+            else states.PW(_pen.Value, _lineWidth.Value);
         }
     }
 }

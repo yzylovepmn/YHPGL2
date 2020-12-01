@@ -29,6 +29,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.IR; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public Point? P1 { get { return _p1; } }
         private Point? _p1;
 
@@ -37,7 +39,11 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            if (_p1 == null)
+                states.IR();
+            else if (_p2 == null)
+                states.IR(_p1.Value);
+            else states.IR(_p1.Value, _p2.Value);
         }
     }
 }

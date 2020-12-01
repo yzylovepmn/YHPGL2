@@ -56,6 +56,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.LA; } }
 
+        public override bool AllowInPolygonMode { get { return false; } }
+
         public LineEnd LineEnds { get { return _lineEnds; } }
         private LineEnd _lineEnds;
 

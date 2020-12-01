@@ -18,6 +18,8 @@ namespace YHPGL2
 
         public override InstructionType Type { get { return InstructionType.AR; } }
 
+        public override bool AllowInPolygonMode { get { return true; } }
+
         public Vector Incr { get { return _incr; } }
         private Vector _incr;
 
@@ -29,7 +31,7 @@ namespace YHPGL2
 
         public override void Execute(States states)
         {
-
+            states.AR(_incr, _sweepAngle, _chordAngle);
         }
     }
 }

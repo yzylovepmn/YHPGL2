@@ -9,18 +9,21 @@ namespace YHPGL2
 {
     public class PRInstruction : Instruction
     {
-        public PRInstruction(IEnumerable<Vector> vecs)
+        public PRInstruction(IEnumerable<Point> points)
         {
-            _vecs = vecs.ToList();
+            _points = points.ToList();
         }
 
         public override InstructionType Type { get { return InstructionType.PR; } }
 
-        public IEnumerable<Vector> Vecs { get { return _vecs; } }
-        private List<Vector> _vecs;
+        public override bool AllowInPolygonMode { get { return true; } }
+
+        public IEnumerable<Point> Points { get { return _points; } }
+        private List<Point> _points;
 
         public override void Execute(States states)
         {
+            states.PR(_points);
         }
     }
 }
