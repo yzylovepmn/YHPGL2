@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Button Height="24" Width="100" Content="Open" Click="_OnClicked"/>
+        <Grid x:Name="GD_Page" Grid.Row="1"/>
     </Grid>
 </Window>
